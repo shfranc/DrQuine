@@ -19,8 +19,12 @@ $(NAME): $(OBJS)
 	@echo "$(GREEN)$@:$(RESET) OK"
 
 $(PATH_OBJS)/%.o: %.c
-	@$(CC) $(FLAGS) -c $< -o $@ $(addprefix -I , $(INCS))
+	@mkdir -p $(PATH_OBJS)
+	@$(CC) $(FLAGS) -c $< -o $@
 	@echo "$(YELLOW)compil:$(RESET) $@"
+
+test: $(NAME)
+	@./$(NAME) > tmp ; diff Colleen.c tmp ; rm tmp
 
 clean:
 	@rm -rf $(OBJS)

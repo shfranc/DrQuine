@@ -1,32 +1,18 @@
 /* Colleen */
 #include <stdio.h>
-#define NL 10
-#define	QUOTE 34
+#define	TAB		9
+#define	NEWLINE	10
+#define	QUOTE	34
 
 void print(char *code)
 {
 	/* print source code */
-	printf(code, QUOTE, code, QUOTE);
+	printf(code, NEWLINE, TAB, QUOTE, code);
 }
 
 int	main()
 {
-	char *code = "#include <stdio.h>\n\
-#define NL 10\n\
-#define	QUOTE 34\n\
-\n\
-void print(char *code)\n\
-{\n\
-	/* print source code */\n\
-	printf(code, QUOTE, code, QUOTE);\n\
-}\n\
-\n\
-int	main()\n\
-{\n\
-	char	*code = %c%s%c;\n\
-	print(code);\n\
-	return 0;\n\
-}\n";
+	char	*code = "/* Colleen */%1$c#include <stdio.h>%1$c#define%2$cTAB%2$c%2$c9%1$c#define%2$cNEWLINE%2$c10%1$c#define%2$cQUOTE%2$c34%1$c%1$cvoid print(char *code)%1$c{%1$c%2$c/* print source code */%1$c%2$cprintf(code, NEWLINE, TAB, QUOTE, code);%1$c}%1$c%1$cint%2$cmain()%1$c{%1$c%2$cchar%2$c*code = %3$c%s%3$c;%1$c%2$cprint(code);%1$c%2$creturn 0;%1$c}%1$c";
 	print(code);
 	return 0;
 }
