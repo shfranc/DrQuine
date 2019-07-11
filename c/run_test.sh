@@ -22,10 +22,27 @@ function test_grace {
 	result=$?
 }
 
-function main {
+function test_sully {
+	./Sully ;
+	nb=$(ls -al | grep Sully | wc -l)
+	if [ $nb -ne 14 ] ; then
+		result=1;
+	else
+		result=0;
+	fi
+}
 
+function diff_sully {
+	printf "%s\n" "diff Sully.c Sully_0.c"; diff Sully.c Sully_0.c
+	printf "%s\n" "diff Sully_3.c Sully_2.c"; diff Sully_3.c Sully_2.c
+	exit 0;
+}
+
+function main {
 	printf "Test Colleen:\t"; test_colleen; print_result $result;
 	printf "Test Grace:\t"; test_grace; print_result $result;
+	printf "Test Sully:\t"; test_sully; print_result $result;
+	diff_sully;
 }
 
 main "$@"

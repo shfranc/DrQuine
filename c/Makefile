@@ -1,11 +1,12 @@
 COLLEEN = Colleen
 GRACE = Grace
+SULLY = Sully
 FLAGS = -Wall -Wextra -Werror
 CC = gcc
 
 PATH_OBJS = objs
 
-SRCS = Colleen.c Grace.c
+SRCS = Colleen.c Grace.c Sully.c
 OBJS = $(SRCS:%.c=$(PATH_OBJS)/%.o)
 
 GREEN = \033[01;32m
@@ -13,7 +14,7 @@ YELLOW = \033[01;33m
 BLUE = \033[01;34m
 RESET = \033[00m
 
-all: $(COLLEEN) $(GRACE)
+all: $(COLLEEN) $(GRACE) $(SULLY)
 
 $(COLLEEN): $(OBJS)
 	@$(CC) $(FLAGS) -o $@ Colleen.c
@@ -21,6 +22,10 @@ $(COLLEEN): $(OBJS)
 
 $(GRACE): $(OBJS)
 	@$(CC) $(FLAGS) -o $@ Grace.c
+	@echo "$(GREEN)$@:$(RESET) OK"
+
+$(SULLY): $(OBJS)
+	@$(CC) $(FLAGS) -o $@ Sully.c
 	@echo "$(GREEN)$@:$(RESET) OK"
 
 $(PATH_OBJS)/%.o: %.c
@@ -32,11 +37,11 @@ test: $(COLLEEN) $(GRACE)
 	@sh run_test.sh
 
 clean:
-	@rm -rf $(OBJS) Grace_kid.c
+	@rm -rf $(OBJS) Grace_kid.c Sully_*
 	@echo "$(BLUE)clean:$(RESET) $(PATH_OBJS)"
 
 fclean: clean
-	@rm -rf $(COLLEEN) $(GRACE)
-	@echo "$(BLUE)clean:$(RESET) $(COLLEEN) $(GRACE)"
+	@rm -rf $(COLLEEN) $(GRACE) $(SULLY)
+	@echo "$(BLUE)clean:$(RESET) $(COLLEEN) $(GRACE) $(SULLY)"
 
 re: fclean all
