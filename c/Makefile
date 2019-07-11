@@ -1,10 +1,11 @@
-NAME = Colleen
+COLLEEN = Colleen
+GRACE = Grace
 FLAGS = -Wall -Wextra -Werror
 CC = gcc
 
 PATH_OBJS = objs
 
-SRCS = Colleen.c
+SRCS = Colleen.c Grace.c
 OBJS = $(SRCS:%.c=$(PATH_OBJS)/%.o)
 
 GREEN = \033[01;32m
@@ -12,10 +13,14 @@ YELLOW = \033[01;33m
 BLUE = \033[01;34m
 RESET = \033[00m
 
-all: $(NAME)
+all: $(COLLEEN) $(GRACE)
 
-$(NAME): $(OBJS)
-	@$(CC) $(FLAGS) -o $@ $^
+$(COLLEEN): $(OBJS)
+	@$(CC) $(FLAGS) -o $@ Colleen.c
+	@echo "$(GREEN)$@:$(RESET) OK"
+
+$(GRACE): $(OBJS)
+	@$(CC) $(FLAGS) -o $@ Grace.c
 	@echo "$(GREEN)$@:$(RESET) OK"
 
 $(PATH_OBJS)/%.o: %.c
@@ -23,8 +28,8 @@ $(PATH_OBJS)/%.o: %.c
 	@$(CC) $(FLAGS) -c $< -o $@
 	@echo "$(YELLOW)compil:$(RESET) $@"
 
-test: $(NAME)
-	@./$(NAME) > tmp ; diff Colleen.c tmp ; rm tmp
+test: $(COLLEEN) $(GRACE)
+	@sh run_test.sh
 
 clean:
 	@rm -rf $(OBJS)
