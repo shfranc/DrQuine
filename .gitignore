@@ -2,7 +2,8 @@ Colleen
 Grace
 Sully
 objs
-Grace_kid.c
+Grace_kid.*
 Sully_*
 .editorconfig
 .DS_STORE
+.vscode
