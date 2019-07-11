@@ -32,11 +32,11 @@ test: $(COLLEEN) $(GRACE)
 	@sh run_test.sh
 
 clean:
-	@rm -rf $(OBJS)
+	@rm -rf $(OBJS) Grace_kid.c
 	@echo "$(BLUE)clean:$(RESET) $(PATH_OBJS)"
 
 fclean: clean
-	@rm -rf $(NAME)
-	@echo "$(BLUE)clean:$(RESET) $(NAME)"
+	@rm -rf $(COLLEEN) $(GRACE)
+	@echo "$(BLUE)clean:$(RESET) $(COLLEEN) $(GRACE)"
 
 re: fclean all
