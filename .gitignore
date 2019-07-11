@@ -3,5 +3,6 @@ Grace
 Sully
 objs
 Grace_kid.c
+Sully_*
 .editorconfig
 .DS_STORE
