@@ -33,7 +33,7 @@ $(PATH_OBJS)/%.o: %.c
 	@$(CC) $(FLAGS) -c $< -o $@
 	@echo "$(YELLOW)compil:$(RESET) $@"
 
-test: $(COLLEEN) $(GRACE)
+test: $(COLLEEN) $(GRACE) $(SULLY)
 	@sh run_test.sh
 
 clean:
