@@ -20,6 +20,7 @@ function test_colleen {
 function test_grace {
 	python3 Grace.py ; diff Grace.py Grace_kid.py > /dev/null 2>&1
 	result=$?
+	rm Grace_kid.py
 }
 
 function test_sully {
@@ -30,11 +31,12 @@ function test_sully {
 	else
 		result=0;
 	fi
+	rm Sully_*
 }
 
 function diff_sully {
-	printf "%s\n" "diff Sully.c Sully_0.c"; diff Sully.c Sully_0.c
-	printf "%s\n" "diff Sully_3.c Sully_2.c"; diff Sully_3.c Sully_2.c
+	printf "%s\n" "diff Sully.py Sully_0.py"; diff Sully.py Sully_0.py
+	printf "%s\n" "diff Sully_3.py Sully_2.py"; diff Sully_3.py Sully_2.py
 	exit 0;
 }
 
