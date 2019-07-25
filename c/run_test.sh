@@ -35,7 +35,6 @@ function test_sully {
 function diff_sully {
 	printf "%s\n" "diff Sully.c Sully_0.c"; diff Sully.c Sully_0.c
 	printf "%s\n" "diff Sully_3.c Sully_2.c"; diff Sully_3.c Sully_2.c
-	exit 0;
 }
 
 function main {
@@ -43,6 +42,7 @@ function main {
 	printf "Test Grace:\t"; test_grace; print_result $result;
 	printf "Test Sully:\t"; test_sully; print_result $result;
 	diff_sully;
+	exit 0;
 }
 
 main "$@"

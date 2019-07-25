@@ -24,20 +24,18 @@ function test_grace {
 }
 
 function test_sully {
-	python3 Sully.py ;
+	python3 Sully.py
 	nb=$(ls -al | grep Sully | wc -l)
-	if [ $nb -ne 14 ] ; then
+	if [ $nb -ne 7 ] ; then
 		result=1;
 	else
 		result=0;
 	fi
-	rm Sully_*
 }
 
 function diff_sully {
 	printf "%s\n" "diff Sully.py Sully_0.py"; diff Sully.py Sully_0.py
 	printf "%s\n" "diff Sully_3.py Sully_2.py"; diff Sully_3.py Sully_2.py
-	exit 0;
 }
 
 function main {
