@@ -17,15 +17,15 @@ RESET = \033[00m
 all: $(COLLEEN) $(GRACE) $(SULLY)
 
 $(COLLEEN): $(OBJS)
-	@$(CC) $(FLAGS) -o $@ Colleen.c
+	@$(CC) $(FLAGS) -o $@ $(PATH_OBJS)/$@.o
 	@echo "$(GREEN)$@:$(RESET) OK"
 
 $(GRACE): $(OBJS)
-	@$(CC) $(FLAGS) -o $@ Grace.c
+	@$(CC) $(FLAGS) -o $@ $(PATH_OBJS)/$@.o
 	@echo "$(GREEN)$@:$(RESET) OK"
 
 $(SULLY): $(OBJS)
-	@$(CC) $(FLAGS) -o $@ Sully.c
+	@$(CC) $(FLAGS) -o $@ $(PATH_OBJS)/$@.o
 	@echo "$(GREEN)$@:$(RESET) OK"
 
 $(PATH_OBJS)/%.o: %.c
