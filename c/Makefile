@@ -44,4 +44,4 @@ fclean: clean
 	@rm -rf $(COLLEEN) $(GRACE) $(SULLY)
 	@echo "$(BLUE)clean:$(RESET) $(COLLEEN) $(GRACE) $(SULLY)"
 
-re: fclean all
+re: clean fclean all
