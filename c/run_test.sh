@@ -32,6 +32,10 @@ function test_sully {
 	fi
 }
 
+function diff_grace {
+	printf "%s\n" "diff Grace.c Grace_kid.c"; diff Grace.c Grace_kid.c
+}
+
 function diff_sully {
 	printf "%s\n" "diff Sully.c Sully_0.c"; diff Sully.c Sully_0.c
 	printf "%s\n" "diff Sully_3.c Sully_2.c"; diff Sully_3.c Sully_2.c
@@ -40,6 +44,9 @@ function diff_sully {
 function main {
 	printf "Test Colleen:\t"; test_colleen; print_result $result;
 	printf "Test Grace:\t"; test_grace; print_result $result;
+	if [ $result -ne 0 ] ; then 
+		diff_grace;
+	fi
 	printf "Test Sully:\t"; test_sully; print_result $result;
 	diff_sully;
 	exit 0;
