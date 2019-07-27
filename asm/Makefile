@@ -1,7 +1,7 @@
 COLLEEN = Colleen
 GRACE = Grace
 SULLY = Sully
-ASFLAGS = -f macho64
+ASFLAGS = -f macho64 -g
 AS = nasm
 LD = ld
 LDFLAGS = -macosx_version_min 10.8 -lSystem
