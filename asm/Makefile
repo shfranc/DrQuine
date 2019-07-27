@@ -39,11 +39,11 @@ test: $(COLLEEN) $(GRACE) $(SULLY)
 	@sh run_test.sh
 
 clean:
-	@rm -rf $(OBJS) Grace_kid.s Sully_*
-	@echo "$(BLUE)clean:$(RESET) $(PATH_OBJS)"
+	@echo "$(BLUE)clean:$(RESET) $(PATH_OBJS) Grace_kid.s Sully_*"
+	@rm -rf $(PATH_OBJS) Grace_kid.s Sully_*
 
 fclean: clean
-	@rm -rf $(COLLEEN) $(GRACE) $(SULLY)
 	@echo "$(BLUE)clean:$(RESET) $(COLLEEN) $(GRACE) $(SULLY)"
+	@rm -rf $(COLLEEN) $(GRACE) $(SULLY)
 
 re: clean fclean all
