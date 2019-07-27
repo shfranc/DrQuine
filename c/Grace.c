@@ -4,12 +4,13 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
-#define NEWLINE 10
-#define QUOTE 34
-#define start main
-int start()
-{ char *code = "/*%1$c%3$cGrace%1$c*/%1$c#include <stdio.h>%1$c#include <fcntl.h>%1$c#include <unistd.h>%1$c#define NEWLINE 10%1$c#define QUOTE 34%1$c#define start main%1$cint start()%1$c{ char *code = %2$c%4$s%2$c;%1$cint fd = open(%2$cGrace_kid.c%2$c, O_RDWR | O_CREAT, 00644); if (fd < 0) { return 0; }%1$cdprintf(fd, code, NEWLINE, QUOTE, 9, code);%1$cclose(fd);%1$c}%1$c";
-int fd = open("Grace_kid.c", O_RDWR | O_CREAT, 00644); if (fd < 0) { return 0; }
-dprintf(fd, code, NEWLINE, QUOTE, 9, code);
-close(fd);
+#define FILENAME "Grace_kid.c"
+#define CODE "/*%2$c%1$cGrace%2$c*/%2$c#include <stdio.h>%2$c#include <fcntl.h>%2$c#include <unistd.h>%2$c#define FILENAME %3$cGrace_kid.c%3$c%2$c#define CODE %3$c%5$s%3$c%2$c#define FT()int main(){%4$c%2$cchar *code = CODE;%4$c%2$cint fd = open(FILENAME, O_RDWR | O_CREAT | O_TRUNC, 00644); if (fd < 0) { return 0; }%4$c%2$cdprintf(fd, code, 9, 10, 34, 92, code); close(fd);%4$c%2$creturn 0;%4$c%2$c}%2$c%2$cFT()%2$c"
+#define FT()int main(){\
+char *code = CODE;\
+int fd = open(FILENAME, O_RDWR | O_CREAT | O_TRUNC, 00644); if (fd < 0) { return 0; }\
+dprintf(fd, code, 9, 10, 34, 92, code); close(fd);\
+return 0;\
 }
+
+FT()
