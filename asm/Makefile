@@ -39,7 +39,7 @@ test: $(COLLEEN) $(GRACE) $(SULLY)
 	@sh run_test.sh
 
 clean:
-	@rm -rf $(OBJS) Grace_kid.c Sully_*
+	@rm -rf $(OBJS) Grace_kid.s Sully_*
 	@echo "$(BLUE)clean:$(RESET) $(PATH_OBJS)"
 
 fclean: clean
