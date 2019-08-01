@@ -21,7 +21,7 @@ $> echo $?
 0
 ```
 
-### Sylly
+### Sully
 Create as many children as the index in the source code of `Sully`. The source code of all children is identical, except for the index, unique for each.
 
 ```bash
@@ -68,4 +68,3 @@ make		# run each program
 make test	# run the tests for each
 ```
 
-### JS
