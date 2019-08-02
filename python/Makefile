@@ -34,4 +34,4 @@ clean:
 
 fclean: clean
 
-re: test clean fclean all
+re: fclean all
